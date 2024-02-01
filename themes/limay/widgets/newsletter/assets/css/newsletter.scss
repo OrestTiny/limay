@@ -1,0 +1,75 @@
+@import "../../../../assets/scss/vars";
+
+.limay-newsletter {
+  &__heading {
+    text-align: center;
+
+    p {
+      color: $sec;
+    }
+  }
+
+  &__form {
+    .mc4wp-form-fields {
+      display: flex;
+
+      @include sm-max {
+        flex-wrap: wrap;
+      }
+    }
+
+    .mc4wp-alert {
+      margin-top: 5px;
+    }
+  }
+
+  input {
+    // background-color: $olive;
+    background-color: transparent;
+    border-radius: 0;
+
+    &[type="text"] {
+      margin-right: 16px;
+
+      @include sm-max {
+        margin: 0 0 16px;
+      }
+    }
+
+    &[type="email"] {
+      @include sm-max {
+        flex: 1;
+      }
+    }
+  }
+
+  button {
+    flex: 0 0 59px;
+    display: grid;
+    place-content: center;
+    border-radius: 0;
+    background-color: transparent;
+    border: thin solid $beige;
+    border-left: none;
+    transition: $trans;
+    padding: 0;
+
+    @include sm-max {
+      flex: 0 59px;
+    }
+
+    &:hover {
+      background-color: $beige;
+
+      i {
+        font-weight: 900;
+      }
+    }
+
+    i {
+      transition: $trans;
+      color: $sec;
+      font-size: 22px;
+    }
+  }
+}

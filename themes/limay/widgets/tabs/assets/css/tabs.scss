@@ -1,0 +1,165 @@
+@import "../../../../assets/scss/vars";
+
+.limay-tabs {
+  display: flex;
+  align-items: flex-start;
+  gap: 64px;
+
+  @include md-max {
+    gap: 48px;
+    flex-direction: column;
+  }
+
+  .limay-tab {
+    display: none;
+    height: 100%;
+
+    &>* {
+      &:last-child {
+        margin-bottom: 0 !important;
+      }
+    }
+
+    &.no-title {
+      &>p {
+        margin-bottom: 32px;
+
+        @include md-min {
+          max-width: 335px;
+        }
+
+        @include md-max {
+          margin-bottom: 24px;
+        }
+      }
+
+      a {
+        text-decoration: none;
+        font-weight: 400;
+        line-height: inherit;
+      }
+    }
+
+    &-links {
+      flex: 0 1 315px;
+      flex-shrink: 0;
+
+      @include md-max {
+        flex: 0 1 auto;
+      }
+
+      @include sm-max {
+        flex-direction: column;
+      }
+
+      li {
+        list-style: none;
+        padding: 19px 0;
+        border-top: 1px solid $sec;
+        transition: border $trans;
+
+        @include sm-max {
+          border-bottom: none;
+        }
+
+        h5 {
+          cursor: pointer;
+          white-space: nowrap;
+          flex: 1;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 16px;
+        }
+
+        i {
+          opacity: 0;
+          font-size: 12px;
+          transition: opacity $trans;
+        }
+
+        &:last-child {
+          border-bottom: 1px solid $sec;
+        }
+
+        &.active {
+          border-color: $pr;
+
+          &+li {
+            border-top-color: $pr;
+          }
+
+          h5 {
+            color: $pr;
+          }
+
+          i {
+            color: $pr;
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    &-content {
+      flex: 1;
+
+      ul {
+        padding-left: 18px;
+
+        li {
+          position: relative;
+          list-style: none;
+
+          &:not(:last-child) {
+            margin-bottom: 18px;
+          }
+
+          &::before {
+            content: '';
+            width: 2px;
+            height: 13px;
+            background-color: $pr;
+            flex-shrink: 0;
+            display: inline-block;
+            position: absolute;
+            left: -18px;
+            top: 0.4em;
+          }
+        }
+      }
+    }
+
+    p {
+      margin-bottom: 16px;
+    }
+
+    &__desc {
+      color: $sec;
+      flex: 1;
+
+      &>*:last-child {
+        margin-bottom: 0;
+      }
+
+      a {
+        color: $pr;
+        text-decoration: underline;
+
+        &:hover {
+          color: $sec;
+        }
+      }
+    }
+
+    .p-bg {
+      color: $sec;
+    }
+
+    &.active {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+}

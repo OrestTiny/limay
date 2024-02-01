@@ -1,0 +1,68 @@
+@import "../../../../assets/scss/vars";
+
+.limay-slider-fade {
+  display: flex;
+  justify-content: center;
+  gap: 64px;
+
+  @include xl-max {
+    gap: 48px;
+  }
+
+  @include md-max {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  // h2 {
+  //   letter-spacing: -1px;
+  // }
+
+  &__button {
+    display: flex;
+    gap: 16px;
+  }
+
+  &__first {
+    width: min(313px, 100%);
+    margin-right: 0;
+    flex-shrink: 0;
+
+    @include md-max {
+      margin-right: auto;
+      margin-left: 0;
+    }
+
+    .limay-slider-fade__item {
+      padding-bottom: 100%;
+    }
+  }
+
+  &__second {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    .swiper-slide {
+      width: min(603px, 100%) !important;
+    }
+
+    @include md-max {
+      gap: 24px;
+      flex-direction: column-reverse;
+    }
+  }
+
+  &__subtitle {
+    color: $sec;
+    margin-bottom: 18px;
+  }
+
+  &__description {
+    &>* {
+      &:not(:last-child) {
+        margin-bottom: 18px;
+      }
+    }
+  }
+}
