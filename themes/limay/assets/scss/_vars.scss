@@ -1,0 +1,15 @@
+@import './variables/mixin';
+
+$font-size: var(--font-size);
+$line-height: var(--line-height);
+$font-family: var(--font-family);
+
+$pr: var(--e-global-color-primary);
+$sec: var(--e-global-color-secondary);
+
+$blue: var(--e-global-color-accent);
+$dk: var(--e-global-color-text);
+$ca-dk: var(0, 0, 0);
+
+$lg: var(--light);
+$ca-lg: var(--ca-light);

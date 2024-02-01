@@ -1,0 +1,17 @@
+# Ignore everything
+node_modules/*
+uploads
+upgrade
+.idea
+.prettierignore
+.DS_Store
+mu-plugins
+plugins/*
+ai1wm-backups
+languages
+debug.log
+
+# But not these files...
+!.gitignore
+!themes/limay
+# etc...
