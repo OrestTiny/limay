@@ -56,7 +56,6 @@
         list-style: none;
         padding: 19px 0;
         border-top: 1px solid $sec;
-        transition: border $trans;
 
         @include sm-max {
           border-bottom: none;
@@ -75,7 +74,6 @@
         i {
           opacity: 0;
           font-size: 12px;
-          transition: opacity $trans;
         }
 
         &:last-child {

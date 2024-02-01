@@ -14,27 +14,37 @@ const gulp = require("gulp"),
   sortCSSmq = require("sort-css-media-queries"),
   debug = require("gulp-debug");
 
+const domain = 'limay';
+
 const path = {
   scss: {
     src: [
-      "./themes/limay/assets/scss/*.scss",
-      "!./themes/limay/assets/scss/gutenberg.scss",
+      `./themes/${domain}/assets/scss/*.scss`,
+      `!./themes/${domain}/assets/scss/gutenberg.scss`,
     ],
-    dest: "./themes/limay/assets/css",
+    dest: `./themes/${domain}/assets/css`,
   },
   scss_gutenberg: {
-    src: ["./themes/limay/assets/scss/gutenberg.scss"],
-    dest: "./themes/limay/assets/css",
+    src: [`./themes/${domain}/assets/scss/gutenberg.scss`],
+    dest: `./themes/${domain}/assets/css`,
   },
   scss_inner: {
-    src: ["./themes/limay/assets/scss/**/*.scss", "!./limay/assets/scss/*.scss"],
-    dest: "./themes/limay/assets/css",
+    src: [`./themes/${domain}/assets/scss/**/*.scss`, `!./${domain}/assets/scss/*.scss`],
+    dest: `./themes/${domain}/assets/css`,
+  },
+  scss_widgets: {
+    src: [`./themes/${domain}/widgets/**/*.scss`],
+    dest: `./themes/${domain}/widgets/`,
+  },
+  js_widgets: {
+    src: [`./themes/${domain}/widgets/**/*.js`, `!./themes/${domain}/widgets/**/*.min.js`],
+    dest: `./themes/${domain}/widgets/`,
   },
   js: {
     src: [
-      "./themes/limay/assets/js/**/*.js",
-      "!./themes/limay/assets/js/**/*.min.js",
-      "!./themes/limay/assets/js/lib{,/**}/*.js",
+      `./themes/${domain}/assets/js/**/*.js`,
+      `!./themes/${domain}/assets/js/**/*.min.js`,
+      `!./themes/${domain}/assets/js/lib{,/**}/*.js`,
     ],
     dest: "./themes/limay/assets/js",
   },
@@ -70,6 +80,18 @@ gulp.task("scripts", function () {
     .pipe(size(options.size));
 });
 
+gulp.task('js_widgets', function () {
+  return gulp
+    .src(path.js_widgets.src)
+    .pipe(debug(options.debug))
+    .pipe(babel(options.babel))
+    .pipe(uglify())
+    .pipe(strip())
+    .pipe(rename(options.rename))
+    .pipe(gulp.dest(path.js_widgets.dest))
+    .pipe(size(options.size));
+});
+
 gulp.task("scss", function () {
   return gulp
     .src(path.scss.src)
@@ -98,6 +120,18 @@ gulp.task("scss_inner", function () {
     .pipe(size(options.size));
 });
 
+gulp.task('scss_widgets', function () {
+  return gulp
+    .src(path.scss_widgets.src)
+    .pipe(debug(options.debug))
+    .pipe(sass(options.sass).on('error', options.onError))
+    .pipe(cleanCSS(options.cleanCss))
+    .pipe(postCSS([autoprefixer(options.autoprefixer), mqpacker(options.mqpacker)]))
+    .pipe(rename({ ...options.rename }))
+    .pipe(gulp.dest(path.scss_widgets.dest))
+    .pipe(size(options.size));
+});
+
 gulp.task("scss_gutenberg", function () {
   return gulp
     .src(path.scss_gutenberg.src)
@@ -116,7 +150,9 @@ gulp.task("watch", async () => {
   gulp.watch(path.scss.src, gulp.series("scss"));
   gulp.watch(path.scss_gutenberg.src, gulp.series("scss_gutenberg"));
   gulp.watch(path.scss_inner.src, gulp.series("scss_inner"));
+  gulp.watch(path.scss_widgets.src, gulp.series('scss_widgets'));
   gulp.watch(path.js.src, gulp.series("scripts"));
+  gulp.watch(path.js_widgets.src, gulp.series('js_widgets'));
 });
 
 gulp.task("default", gulp.series("watch"));

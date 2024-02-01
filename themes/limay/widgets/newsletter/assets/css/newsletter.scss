@@ -49,9 +49,7 @@
     place-content: center;
     border-radius: 0;
     background-color: transparent;
-    border: thin solid $beige;
     border-left: none;
-    transition: $trans;
     padding: 0;
 
     @include sm-max {
@@ -59,7 +57,6 @@
     }
 
     &:hover {
-      background-color: $beige;
 
       i {
         font-weight: 900;
@@ -67,7 +64,6 @@
     }
 
     i {
-      transition: $trans;
       color: $sec;
       font-size: 22px;
     }

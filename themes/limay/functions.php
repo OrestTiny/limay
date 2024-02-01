@@ -22,9 +22,9 @@ require_once LIMAY_T_PATH . '/include/config-actions.php';
 require_once LIMAY_T_PATH . '/include/customizer.php';
 require_once LIMAY_T_PATH . '/include/function-helper.php';
 require_once LIMAY_T_PATH . '/include/function-global.php';
-require_once LIMAY_T_PATH . '/include/optimization.php';
+// require_once LIMAY_T_PATH . '/include/optimization.php';
 require_once LIMAY_T_PATH . '/include/site-options.php';
-// require_once LIMAY_T_PATH . '/include/elementor-widgets.php';
+require_once LIMAY_T_PATH . '/include/elementor-widgets.php';
 
 
 if (file_exists(LIMAY_T_PATH . '/lib/cmb2/init.php')) {
