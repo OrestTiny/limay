@@ -8,6 +8,26 @@
   display: flex;
   justify-content: space-between;
 
+  &.open {
+    .header-menu {
+      display: none;
+    }
+  }
+
+  &__megamenu {
+    background-color: antiquewhite;
+    height: 100vh;
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    transition: transform 1.6s;
+
+    &.open {
+      transition: transform .8s;
+      transform: translate3d(0px, 0, 0px) !important;
+    }
+  }
+
   &__wrapper {
     display: flex;
     justify-content: space-between;
