@@ -4,6 +4,8 @@ $md: 768px;
 $lg-size: 992px;
 $xl: 1200px;
 $xxl: 1400px;
+$qhd: 1600px;
+$fhd: 1919px;
 
 @mixin xs-max {
   @media screen and (max-width: ($xs - 1)) {
@@ -73,6 +75,20 @@ $xxl: 1400px;
 
 @mixin xxl-min {
   @media screen and (min-width: $xxl) {
+    @content;
+  }
+}
+
+
+@mixin qhd-max {
+  @media screen and (min-width: $qhd) {
+    @content;
+  }
+}
+
+
+@mixin fhd-max {
+  @media screen and (min-width: $fhd) {
     @content;
   }
 }

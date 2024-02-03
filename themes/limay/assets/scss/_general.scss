@@ -44,12 +44,6 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  padding-top: 110px;
-  background-color: #f2f2f2;
-
-  @include lg-max {
-    padding-top: 90px;
-  }
 
   &>main {
     flex: 1;
