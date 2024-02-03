@@ -17,6 +17,9 @@ body {
   font-family: $font-family;
   color: $dk;
   line-height: $line-height;
+  background: #ffff;
+  overflow-wrap: break-word;
+  font-kerning: normal;
 }
 
 .container {
@@ -130,9 +133,9 @@ a {
     color: $blue;
   }
 
-  &[href="#"] {
-    cursor: default !important;
-  }
+  // &[href="#"] {
+  //   cursor: default !important;
+  // }
 }
 
 .btn {
@@ -159,7 +162,21 @@ a {
   &:focus {
     color: $lg;
   }
+}
 
+.p-pr {
+  font-size: 26px;
+  line-height: 31.2px;
+
+  @include fhd-max {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  @include md-max {
+    font-size: 17.5px;
+    line-height: 21px;
+  }
 }
 
 strong,
@@ -331,4 +348,18 @@ input {
 
 .overflow-full {
   overflow: hidden;
+}
+
+
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgba(222, 222, 222, .75);
+}
+
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(rgb(0, 41, 153), rgb(0, 255, 179));
+  border-radius: 10px;
 }
