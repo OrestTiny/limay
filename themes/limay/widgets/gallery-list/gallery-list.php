@@ -32,7 +32,6 @@ class Limay_Gallery_List extends Widget_Base
     wp_register_script(
       'limay-gallery-list',
       LIMAY_T_URI . '/widgets/gallery-list/assets/js/gallery-list.min.js',
-      array('swiper'),
       '',
       true
     );
@@ -58,9 +57,9 @@ class Limay_Gallery_List extends Widget_Base
       ]
     );
 
-    $slides = new Repeater();
+    $list = new Repeater();
 
-    $slides->add_control(
+    $list->add_control(
       'media',
       [
         'label'       => esc_html__('Media', 'limay'),
@@ -73,33 +72,24 @@ class Limay_Gallery_List extends Widget_Base
       ]
     );
 
-    $slides->add_control(
+    $list->add_control(
       'title',
       [
         'label' => esc_html__('Title', 'limay'),
-        'type' => \Elementor\Controls_Manager::TEXT,
+        'type' => \Elementor\Controls_Manager::TEXTAREA,
         'default' => esc_html__('Default Title', 'limay'),
+        'rows' => 10,
         'placeholder' => esc_html__('Type your title here', 'limay'),
         'label_block' => true,
       ]
     );
 
-    $slides->add_control(
-      'subtitle',
-      [
-        'label' => esc_html__('Subtitle', 'limay'),
-        'type' => \Elementor\Controls_Manager::TEXTAREA,
-        'default' => esc_html__('Default Subtitle', 'limay'),
-        'placeholder' => esc_html__('Type your subtitle here', 'limay'),
-        'label_block' => true,
-      ]
-    );
 
-    $slides->add_control(
+    $list->add_control(
       'description',
       [
         'label' => esc_html__('Description', 'limay'),
-        'type' => \Elementor\Controls_Manager::WYSIWYG,
+        'type' => \Elementor\Controls_Manager::TEXTAREA,
         'rows' => 10,
         'default' => esc_html__('Default Description', 'limay'),
         'placeholder' => esc_html__('Type your description here', 'limay'),
@@ -107,11 +97,11 @@ class Limay_Gallery_List extends Widget_Base
     );
 
     $this->add_control(
-      'slides',
+      'list',
       [
         'label'  => esc_html__('Repeater Slides', 'limay'),
         'type'   => \Elementor\Controls_Manager::REPEATER,
-        'fields' => $slides->get_controls(),
+        'fields' => $list->get_controls(),
       ]
     );
 
@@ -123,55 +113,40 @@ class Limay_Gallery_List extends Widget_Base
 
     $settings = $this->get_settings_for_display();
 
+    $list = $settings['list'];
+
+
+
 ?>
     <div class="limay-gallery-list">
-
       <div class="shimitest-gallery">
         <div class="shimitest-gallery__left">
           <div class="desktopContent">
-            <div class="desktopContentSection">
-              <div class="desktopContentSection__wrap">
-                <span>01</span>
-                <h2>1. Matching Ready Buyers with Leading Brands</h2>
-                <p>We leverage big data and cutting-edge technology to identify and engage high-potential buyers. Using
-                  predictive analysis, we anticipate future user behavior and strategically connect them with the best
-                  offers.
-                </p>
-              </div>
-            </div>
-            <div class="desktopContentSection">
-              <div class="desktopContentSection__wrap">
-                <span>02</span>
-                <h2>2. Guiding Users Purchase Journey</h2>
-                <p>We employ state-of-the-art machine learning innovations to pinpoint customers based on their search
-                  patterns.
-                  Our aim is to empower users with data-driven insights, guiding them towards well-informed purchase
-                  decisions based on their unique preferences and patterns. design agency, we love to deliver meaningful and
-                  intuitive user experiences that build trust with your target audience.</p>
-              </div>
-            </div>
-            <div class="desktopContentSection">
-              <div class="desktopContentSection__wrap">
-                <span>03</span>
-                <h2>3. Building Impactful Content to Elevate Top Brands</h2>
-                <p>We employ advanced tools, including AI-driven content generators, to craft compelling and high-quality
-                  content that resonates with diverse audiences. Our brand assessments guide users in finding
-                  the perfect match for their needs and provide access to exclusive offers, elevating their overall shopping
-                  experience.</p>
-              </div>
-            </div>
+            <?php if (!empty($list) && count($list)) { ?>
+              <?php foreach ($list as $key => $item) {
+                $key = $key + 1;
+                $num = $key > 9 ?  $key : '0' .  $key;
+              ?>
+                <div class="desktopContentSection">
+                  <div class="desktopContentSection__wrap">
+                    <span><?= $num; ?></span>
+                    <h2><?= $item['title'] ?></h2>
+                    <p><?= $item['description'] ?></p>
+                  </div>
+                </div>
+            <?php }
+            } ?>
           </div>
         </div>
 
         <div class="shimitest-gallery__right">
           <div class="shimitest-gallery__right-wrap">
             <div class="desktopPhotos">
-              <div class="desktopPhoto "><img src="https://shimitest.com/wp-content/uploads/2023/12/homepage-img-1.webp">
-              </div>
-              <div class="desktopPhoto "><img src="https://shimitest.com/wp-content/uploads/2023/12/homepage-img-2.jpg">
-              </div>
-              <div class="desktopPhoto "><img src="https://shimitest.com/wp-content/uploads/2023/12/homepage-img-3.jpg">
-              </div>
+              <?php foreach ($list as $key => $item) { ?>
+                <div class="desktopPhoto ">
+                  <?php echo wp_get_attachment_image($item['media']['id'], 'full', array('loading' => 'lazy',)); ?>
+                </div>
+              <?php } ?>
             </div>
           </div>
         </div>

@@ -81,14 +81,14 @@ $fhd: 1919px;
 
 
 @mixin qhd-max {
-  @media screen and (min-width: $qhd) {
+  @media screen and (max-width: $qhd) {
     @content;
   }
 }
 
 
 @mixin fhd-max {
-  @media screen and (min-width: $fhd) {
+  @media screen and (max-width: $fhd) {
     @content;
   }
 }
