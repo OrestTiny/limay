@@ -54,6 +54,8 @@ if (!function_exists('upqode_enqueue_scripts')) {
     if ((is_admin())) {
       return;
     }
+    wp_enqueue_style('limay-sofia-pro', LIMAY_T_URI . '/assets/fonts/SofiaPro/stylesheet.css');
+    wp_enqueue_style('limay-circularStd', LIMAY_T_URI . '/assets/fonts/CircularStd/stylesheet.css');
 
     if (is_404()) {
       wp_enqueue_style('limay-error-page', LIMAY_T_URI . '/assets/css/error-page.min.css');
