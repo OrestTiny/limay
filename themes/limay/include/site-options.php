@@ -66,26 +66,26 @@ function ai_register_main_options_metabox()
   // -------------
 
   $main_options->add_field(array(
-    'name' => '<h1>Header<h1>',
+    'name' => '<h1>Megamenu<h1>',
     'type' => 'title',
-    'id'   => 'limay_header_id'
+    'id'   => 'limay_megamenu_id'
   ));
 
-  // $main_options->add_field(array(
-  //   'name' => "Logo Image",
-  //   'id'   => "limay_logo",
-  //   'type' => 'file',
-  // ));
+  $main_options->add_field(array(
+    'name' => "Logo Image",
+    'id'   => "limay_megamenu",
+    'type' => 'file',
+  ));
 
   $main_options->add_field(array(
     'name' => "Button Name",
-    'id'   => "limay_header_btn_name",
+    'id'   => "limay_megamenu_btn_name",
     'type' => 'text',
   ));
 
   $main_options->add_field(array(
     'name' => "Button Link",
-    'id'   => "limay_header_btn_link",
+    'id'   => "limay_megamenu_btn_link",
     'type' => 'text_url',
   ));
 
@@ -97,11 +97,11 @@ function ai_register_main_options_metabox()
 
   // ----------------------------------
 
-  $main_options->add_field(array(
-    'name' => '<h1>Footer<h1>',
-    'type' => 'title',
-    'id'   => 'limay_footer'
-  ));
+  // $main_options->add_field(array(
+  //   'name' => '<h1>Footer<h1>',
+  //   'type' => 'title',
+  //   'id'   => 'limay_footer'
+  // ));
 
   // $main_options->add_field(array(
   //   'name' => "Logo Image",
@@ -139,11 +139,11 @@ function ai_register_main_options_metabox()
   //   'type' => 'text_url',
   // ));
 
-  $main_options->add_field(array(
-    'name' => "Copyright",
-    'id'   => "limay_footer_copyright",
-    'type' => 'textarea',
-  ));
+  // $main_options->add_field(array(
+  //   'name' => "Copyright",
+  //   'id'   => "limay_footer_copyright",
+  //   'type' => 'textarea',
+  // ));
 }
 
 add_action('cmb2_admin_init', 'ai_register_main_options_metabox');

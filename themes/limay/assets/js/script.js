@@ -4,30 +4,80 @@ $(document).ready(function () {
   const header = $('.limay-header');
   const megamenu = $('#limay-header__megamenu')
   const html = $('html');
+  let isAnimating = false;
+  let isClick = true;
 
   if (burgerBtn && megamenu) {
+    const menuItems = $('.header-megamenu .menu-item', megamenu);
+    const socialItems = $('.limay-header__megamenu-social li');
+    const logo = $('.limay-header__megamenu-logo');
+
+
     burgerBtn.click(function () {
-      const th = $(this);
-      console.log(1);
+      if (!isClick) return;
+      isClick = false;
 
-      html.stop('true').toggleClass('no-scroll');
-      megamenu.stop(true).toggleClass('open')
-      header.stop(true).toggleClass('open')
+      if (!isAnimating) {
+        isAnimating = true;
 
+        burgerBtn.addClass('active');
+        html.addClass('no-scroll');
 
-      // megamenu.animate({
+        megamenu.addClass('open');
+        header.addClass('open')
+        logo.addClass('active');
 
-      // }, {
-      //   step: function (now, fx) {
-      //     $(this).css({ "transform": "translate3d(0px, 0px, 0px)" });
-      //   },
-      //   duration: 1000,
-      //   easing: 'linear',
-      //   queue: false,
-      //   complete: function () {
-      //     alert('Animation is done');
-      //   }
-      // }, 'linear');
+        setTimeout(() => {
+          animateEachActive(menuItems, 100);
+          animateEachActive(socialItems, 200);
+          isClick = true;
+        }, 300)
+      } else {
+        isAnimating = false;
+
+        burgerBtn.removeClass('active');
+
+        setTimeout(() => {
+          animateEachActiveReverse(menuItems, 100);
+          animateEachActiveReverse(socialItems, 100)
+        }, 100)
+
+        setTimeout(() => {
+          logo.removeClass('active');
+        }, 600)
+
+        setTimeout(() => {
+          html.removeClass('no-scroll');
+          header.removeClass('open');
+
+          megamenu.removeClass('open');
+          isClick = true;
+        }, 700)
+      }
+
     });
   }
+
+
+  function animateEachActive(items, duration) {
+    items.each(function (index) {
+      var $th = $(this);
+
+      setTimeout(function () {
+        $th.addClass('active');
+      }, index * duration);
+    })
+  }
+
+  function animateEachActiveReverse(items, duration) {
+    var totalItems = items.length;
+
+    items.each(function (index) {
+      var $th = $(this);
+      setTimeout(function () {
+        $th.removeClass('active');
+      }, (totalItems - index) * duration);
+    });
+  }
+
 });

@@ -18,8 +18,8 @@ if (!function_exists('upqode_register_nav_menu')) {
   {
     register_nav_menus(array(
       'primary-menu' => esc_html__('Header Menu', 'limay'),
+      'megamenu' => esc_html__('Megamenu', 'limay'),
       'footer-menu' => esc_html__('Footer Menu', 'limay'),
-      'megamenu' => esc_html__('Megamenu', 'limay')
     ));
   }
 }

@@ -31,11 +31,49 @@
 
   $custom_logo_id = get_theme_mod('custom_logo');
   $logo = wp_get_attachment_image_src($custom_logo_id, 'full');
-
+  $social = cmb2_get_option('limay_main_options', 'limay_social_group');
+  $megamenu_logo = cmb2_get_option('limay_main_options', 'limay_megamenu');
 
   ?>
   <div class="limay-overlay"></div>
-  <div class="limay-header__megamenu" id="limay-header__megamenu" style="transform: translate3d(0px, -100%, 0px);"></div>
+  <div class="limay-header__megamenu" id="limay-header__megamenu">
+    <div class="limay-header__megamenu-bg"></div>
+
+    <div class="limay-header__megamenu-wrap">
+      <div class="limay-header__megamenu-main">
+        <div class="limay-header__megamenu-logo">
+          <a href="<?php echo esc_url(home_url('/')); ?>">
+            <img src="<?= $megamenu_logo ?>" alt="logo">
+          </a>
+        </div>
+
+        <div>
+          <?php if (has_nav_menu('megamenu')) {
+            $args = array(
+              'container_class' => 'limay-header__megamenu-menu',
+              'container' => 'nav',
+              'menu_class' => 'header-megamenu',
+              'theme_location' => 'megamenu',
+            );
+            wp_nav_menu($args);
+          } ?>
+        </div>
+
+        <ul class="limay-header__megamenu-social">
+          <?php if (!empty($social)) { ?>
+            <?php foreach ($social as $item) { ?>
+              <li>
+                <a href="<?php echo esc_url($item['limay_social_group_link']); ?>" title="<?php echo esc_html($item['limay_social_group_name']); ?>" aria-label="<?php echo esc_html($item['limay_social_group_name']); ?>" target="_blank" rel="noopener">
+                  <?php echo file_get_contents(get_template_directory() . '/assets/images/icons/' . $item['limay_social_group_icon'] . '.svg'); ?>
+                </a>
+              </li>
+            <?php } ?>
+          <?php } ?>
+        </ul>
+
+      </div>
+    </div>
+  </div>
 
 
   <div class="limay-main">
