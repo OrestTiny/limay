@@ -129,9 +129,9 @@ class Limay_Gallery_List extends Widget_Base
               ?>
                 <div class="desktopContentSection">
                   <div class="desktopContentSection__wrap">
-                    <span><?= $num; ?></span>
+                    <span class="p-sm"><?= $num; ?></span>
                     <h2><?= $item['title'] ?></h2>
-                    <p><?= $item['description'] ?></p>
+                    <p class="p-bg"><?= $item['description'] ?></p>
                   </div>
                 </div>
             <?php }

@@ -51,11 +51,11 @@ $(document).ready(function () {
       const index = $(this).index();
       const imageEl = desktopPhoto.eq(index);
 
-      if (desktopPhotos.children().length && windowW <= 1024) {
+      if (desktopPhotos.children().length && windowW <= 991) {
         imageEl.appendTo($(this).children('.desktopContentSection__wrap'));
       }
 
-      if (windowW >= 1024) {
+      if (windowW >= 991) {
         imageEl.appendTo(desktopPhotos);
       }
     });
@@ -66,7 +66,7 @@ $(document).ready(function () {
   })
 
   $(window).on('load scroll', function () {
-    if ($(window).innerWidth() >= 1024) {
+    if ($(window).innerWidth() >= 991) {
       isScrolledIntoViewLastItem()
       animateImages();
     }

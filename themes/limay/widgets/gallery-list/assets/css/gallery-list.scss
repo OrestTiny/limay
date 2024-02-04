@@ -3,7 +3,7 @@
 
 .shimitest-gallery {
   display: flex;
-  max-width: 1620px;
+  max-width: 1580px;
   gap: 200px;
   margin: 0 auto;
 
@@ -18,6 +18,27 @@
 
   @include lg-max {
     justify-content: flex-start;
+  }
+
+  h2 {
+    margin-top: 0;
+    font-weight: 800;
+
+    @include fhd-max {
+      margin-bottom: 20px;
+    }
+
+    @include lg-max {
+      margin-bottom: 15px;
+    }
+
+    @include md-max {
+      margin-bottom: 10px;
+    }
+  }
+
+  p {
+    margin: 0;
   }
 
   &__left {
@@ -99,80 +120,24 @@
   }
 }
 
-.shimitest-gallery h2 {
-  font-size: 71.5px;
-  font-weight: 700;
-  line-height: 71.65px;
-  margin-top: 0;
-}
-
-.shimitest-gallery p {
-  font-size: 22px;
-  line-height: 35.2px;
-  margin: 0;
-}
-
 .shimitest-gallery span {
   position: absolute;
-  top: 10px;
+  top: 15px;
   left: -30px;
-  color: rgb(247, 78, 161);
-  letter-spacing: 2.6px;
-  font-size: 18.2px;
+  color: $pr;
   font-weight: 700;
-  line-height: 20.02px;
-}
 
-
-
-@media (max-width: 1919px) {
-  .shimitest-gallery h2 {
-    font-size: 55px;
-    line-height: 60.5px;
+  @include fhd-max {
+    top: 12px;
+    left: -25px;
   }
 
-  .shimitest-gallery span {
-    font-size: 14px;
-    line-height: 15.4px;
-    letter-spacing: 2px;
+  @include lg-max {
+    top: 10px;
+    left: -20px;
   }
 }
 
-@media (max-width: 1024px) {
-  .shimitest-gallery h2 {
-    font-size: 44px;
-    line-height: 48.4px;
-  }
-
-  .shimitest-gallery p {
-    font-size: 16px;
-    line-height: 28px;
-  }
-
-  .shimitest-gallery span {
-    font-size: 11.2px;
-    line-height: 12.32px;
-    top: 6px;
-    left: -18px;
-  }
-}
-
-@media (max-width: 768px) {
-  .shimitest-gallery h2 {
-    font-size: 38.5px;
-    line-height: 42.35px;
-  }
-
-  .shimitest-gallery p {
-    font-size: 15.75px;
-    line-height: 24.925px;
-  }
-
-  .shimitest-gallery span {
-    font-size: 9.8px;
-    line-height: 10.78px;
-  }
-}
 
 .desktopPhotos {
   aspect-ratio: 14 / 9;

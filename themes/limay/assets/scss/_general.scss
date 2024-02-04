@@ -72,8 +72,25 @@ h1 {
   font-size: 36px;
 }
 
-h2 {
-  font-size: 30px;
+h2,
+.h2 {
+  font-size: 71.5px;
+  line-height: 78.65px;
+
+  @include fhd-max {
+    font-size: 55px;
+    line-height: 60.5px;
+  }
+
+  @include lg-max {
+    font-size: 44px;
+    line-height: 48.4px;
+  }
+
+  @include md-max {
+    font-size: 38.5px;
+    line-height: 42.35px;
+  }
 }
 
 h3 {
@@ -114,7 +131,29 @@ p {
 }
 
 
+.hero {
+  font-size: 104px;
+  letter-spacing: -0.975px;
+  line-height: 98.8px;
 
+  @include fhd-max {
+    font-size: 80px;
+    letter-spacing: -0.75px;
+    line-height: 76px;
+  }
+
+  @include lg-max {
+    font-size: 64px;
+    letter-spacing: -0.6px;
+    line-height: 60.8px;
+  }
+
+  @include md-max {
+    font-size: 50.05px;
+    letter-spacing: 0.525px;
+    line-height: 57.5575px;
+  }
+}
 
 button,
 input[type="submit"],
@@ -192,6 +231,50 @@ a {
   @include md-max {
     font-size: 17.5px;
     line-height: 21px;
+  }
+}
+
+.p-bg {
+  font-size: 28.6px;
+  letter-spacing: -0.975px;
+  line-height: 42.9px;
+
+  @include fhd-max {
+    font-size: 22px;
+    letter-spacing: 0.75px;
+    line-height: 33px;
+  }
+
+  @include lg-max {
+    font-size: 17.6px;
+    letter-spacing: -0.6px;
+    line-height: 26.4px;
+  }
+
+  @include md-max {
+    font-size: 17.5px;
+  }
+}
+
+.p-sm {
+  font-size: 18.2px;
+  letter-spacing: 2.6px;
+  line-height: 20.02px;
+
+  @include fhd-max {
+    font-size: 14px;
+    line-height: 15.4px;
+    letter-spacing: 2px;
+  }
+
+  @include lg-max {
+    font-size: 11.2px;
+    line-height: 12.32px;
+  }
+
+  @include md-max {
+    font-size: 9.8px;
+    line-height: 10.78px;
   }
 }
 
