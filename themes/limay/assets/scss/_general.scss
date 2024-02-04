@@ -462,3 +462,11 @@ input {
   background: linear-gradient(rgb(0, 41, 153), rgb(0, 255, 179));
   border-radius: 10px;
 }
+
+[data-an] {
+  opacity: 0;
+
+  &.animation {
+    opacity: 1;
+  }
+}

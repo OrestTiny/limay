@@ -118,19 +118,21 @@ class Limay_Banner extends Widget_Base
 ?>
     <div class="limay-banner">
       <div class="limay-banner__container">
-        <div class="limay-banner__img">
+        <div class="limay-banner__img" data-an="true" data-anDelay="200">
           <div id="lora"></div>
         </div>
 
-        <div class="limay-banner__media">
+        <div class="limay-banner__media" style="display: none;" data-an="true">
           <?php echo wp_get_attachment_image($settings['media_mb']['id'], 'full', array('loading' => 'lazy',)); ?>
         </div>
 
-        <div class="limay-banner__content">
+        <div class="limay-banner__content" data-an="true" data-anDelay="600">
           <h1 class="hero"><?= $settings['title'] ?></h1>
 
           <?php if (!empty($settings['description'])) { ?>
-            <div class="limay-banner__content-desc"><?= $settings['description'] ?></div>
+            <div class="limay-banner__content-desc">
+              <?= $settings['description'] ?>
+            </div>
           <?php } ?>
         </div>
       </div>

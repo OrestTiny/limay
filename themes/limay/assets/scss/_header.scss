@@ -307,6 +307,15 @@
 
     li {
       list-style: none;
+      opacity: 0;
+      transform: translateX(30px);
+      transition: transform 500ms, opacity 400ms;
+
+      &.animation {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
     }
 
     a {
@@ -347,7 +356,7 @@
     background: transparent;
     z-index: 120;
     mix-blend-mode: multiply;
-    transition: margin-top 0.2s ease-in-out 0s;
+    transition: opacity 300ms ease;
     padding: 0;
 
     &:hover {

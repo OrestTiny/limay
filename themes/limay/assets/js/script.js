@@ -1,5 +1,4 @@
 $(document).ready(function () {
-
   const burgerBtn = $('#limay-header__burger');
   const header = $('.limay-header');
   const megamenu = $('#limay-header__megamenu')
@@ -83,5 +82,20 @@ $(document).ready(function () {
       }, (totalItems - index) * duration);
     });
   }
+
+
+
+  const loadAnimation = () => {
+    debugger;
+    const headerMenuItems = $('.header-menu .menu-item');
+
+    headerMenuItems.each(function (i) {
+      setTimeout(() => {
+        $(this).addClass('animation');
+      }, i * 100);
+    })
+  }
+
+  loadAnimation();
 
 });

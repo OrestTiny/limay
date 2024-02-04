@@ -110,7 +110,7 @@
         } ?>
 
 
-        <button class="limay-header__burger" id="limay-header__burger" aria-label="Toggle Navigation">
+        <button data-an="true" data-anDelay="100" class="limay-header__burger" id="limay-header__burger" aria-label="Toggle Navigation">
           <span></span>
         </button>
       </div>
