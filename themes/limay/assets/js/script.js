@@ -49,12 +49,14 @@ $(document).ready(function () {
         }, 600)
 
         setTimeout(() => {
-          html.removeClass('no-scroll');
-          header.removeClass('open');
-
           megamenu.removeClass('open');
-          isClick = true;
+          html.removeClass('no-scroll');
         }, 700)
+
+        setTimeout(() => {
+          header.removeClass('open');
+          isClick = true;
+        }, 1000)
       }
 
     });
