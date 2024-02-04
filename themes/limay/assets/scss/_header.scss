@@ -1,3 +1,10 @@
+body.home {
+  .limay-header__logo {
+    display: none;
+  }
+}
+
+
 .limay-header {
   position: fixed;
   z-index: 9999;
@@ -21,6 +28,16 @@
 
     .header-menu {
       display: none;
+    }
+  }
+
+  &__logo {
+    height: 65px;
+    pointer-events: all;
+
+    img {
+      width: auto;
+      height: 100%;
     }
   }
 
@@ -289,6 +306,7 @@
     align-items: center;
     gap: 44px;
     height: 68px;
+    margin-left: auto;
   }
 
   &__menu {

@@ -28,7 +28,8 @@ class Limay_Gallery_List extends Widget_Base
   public function __construct($data = [], $args = null)
   {
     parent::__construct($data, $args);
-    wp_register_style('limay-gallery-list', LIMAY_T_URI . '/widgets/gallery-list/assets/css/gallery-list.min.css');
+    wp_enqueue_style('limay-gallery-list', LIMAY_T_URI . '/widgets/gallery-list/assets/css/gallery-list.min.css', [], false);
+
     wp_register_script(
       'limay-gallery-list',
       LIMAY_T_URI . '/widgets/gallery-list/assets/js/gallery-list.min.js',

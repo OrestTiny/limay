@@ -73,6 +73,7 @@ if (!function_exists('upqode_enqueue_scripts')) {
       wp_enqueue_style('limay-blog-single', LIMAY_T_URI . '/assets/css/single.min.css');
     }
 
+
     wp_enqueue_style('limay-iconmoon', LIMAY_T_URI . '/assets/fonts/iconmoon/style.css');
     wp_enqueue_style('limay-main-style', LIMAY_T_URI . '/assets/css/style.min.css');
     wp_enqueue_style('limay-style', LIMAY_T_URI . '/style.css');
