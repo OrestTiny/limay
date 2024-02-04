@@ -355,7 +355,7 @@ body.home {
     a {
       color: rgb(255, 255, 255);
       text-decoration: none;
-      transition: color 0.15s ease 0s;
+      transition: color 0.15s ease 0s, background .2s;
       mix-blend-mode: multiply;
       pointer-events: all;
       cursor: pointer;
@@ -375,7 +375,9 @@ body.home {
       }
 
       &:hover {
-        color: rgba(255, 214, 102, 255);
+        background: linear-gradient(90deg, rgba(255, 0, 76, 255) 0, rgba(255, 214, 102, 255) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
       }
     }
   }
