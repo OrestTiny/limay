@@ -12,7 +12,6 @@ $(document).ready(function () {
     const socialItems = $('.limay-header__megamenu-social li');
     const logo = $('.limay-header__megamenu-logo');
 
-
     burgerBtn.click(function () {
       if (!isClick) return;
       isClick = false;

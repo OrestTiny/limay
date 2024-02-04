@@ -33,6 +33,9 @@
   $logo = wp_get_attachment_image_src($custom_logo_id, 'full');
   $social = cmb2_get_option('limay_main_options', 'limay_social_group');
   $megamenu_logo = cmb2_get_option('limay_main_options', 'limay_megamenu');
+  $text = cmb2_get_option('limay_main_options', 'limay_megamenu_text');
+  $btn_name = cmb2_get_option('limay_main_options', 'limay_megamenu_btn_name');
+  $btn_link = cmb2_get_option('limay_main_options', 'limay_megamenu_btn_link');
 
   ?>
   <div class="limay-overlay"></div>
@@ -72,6 +75,14 @@
         </ul>
 
       </div>
+
+      <?php if (!empty($btn_name) && !empty($text)) { ?>
+        <div class="limay-header__megamenu-btn">
+          <h5><?= $text ?></h5>
+          <span></span>
+          <a href="<?= $btn_link ?>"><?= $btn_name   ?></a>
+        </div>
+      <?php } ?>
     </div>
   </div>
 

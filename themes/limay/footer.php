@@ -23,18 +23,20 @@ $social = cmb2_get_option('limay_main_options', 'limay_social_group');
   <div class="limay-footer__wrap">
     <div class="limay-footer__wrap-left">
 
-
-      <ul class="limay-footer__social">
-        <?php if (!empty($social)) { ?>
-          <?php foreach ($social as $item) { ?>
-            <li>
-              <a href="<?php echo esc_url($item['limay_social_group_link']); ?>" title="<?php echo esc_html($item['limay_social_group_name']); ?>" aria-label="<?php echo esc_html($item['limay_social_group_name']); ?>" target="_blank" rel="noopener">
-                <?php echo file_get_contents(get_template_directory() . '/assets/images/icons/' . $item['limay_social_group_icon'] . '.svg'); ?>
-              </a>
-            </li>
+      <div>
+        <h4>FOLLOW</h4>
+        <ul class="limay-footer__social">
+          <?php if (!empty($social)) { ?>
+            <?php foreach ($social as $item) { ?>
+              <li>
+                <a href="<?php echo esc_url($item['limay_social_group_link']); ?>" title="<?php echo esc_html($item['limay_social_group_name']); ?>" aria-label="<?php echo esc_html($item['limay_social_group_name']); ?>" target="_blank" rel="noopener">
+                  <?php echo file_get_contents(get_template_directory() . '/assets/images/icons/' . $item['limay_social_group_icon'] . '.svg'); ?>
+                </a>
+              </li>
+            <?php } ?>
           <?php } ?>
-        <?php } ?>
-      </ul>
+        </ul>
+      </div>
     </div>
 
     <?php if (has_nav_menu('footer-menu')) {

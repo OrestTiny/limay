@@ -78,6 +78,12 @@ function ai_register_main_options_metabox()
   ));
 
   $main_options->add_field(array(
+    'name' => "Text",
+    'id'   => "limay_megamenu_text",
+    'type' => 'text',
+  ));
+
+  $main_options->add_field(array(
     'name' => "Button Name",
     'id'   => "limay_megamenu_btn_name",
     'type' => 'text',
