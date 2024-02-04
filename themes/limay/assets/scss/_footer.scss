@@ -2,13 +2,17 @@
   position: relative;
   width: 100%;
   background: linear-gradient(90deg, rgb(0, 255, 179) 0%, rgb(0, 41, 153) 100%);
-
   color: rgb(255, 255, 255);
-  font-size: 24px;
-  font-family: Sofia, sans-serif;
-  line-height: 1;
-  padding: 10rem 8% 19rem;
+  padding: 130px 0 120px;
   z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  @include md-max {
+    padding: 64px 0 80px;
+  }
 
   ul {
     padding: 0;
@@ -16,6 +20,58 @@
 
     li {
       list-style: none;
+    }
+  }
+
+  h4 {
+    font-size: 18.2px;
+    letter-spacing: 2.6px;
+    line-height: 22.75px;
+  }
+
+  &__menu {
+    margin-top: 40px;
+    text-align: center;
+
+    a {
+      font-family: var(--font-family-heading);
+      color: $lg;
+      font-size: 24px;
+      line-height: 38.4px;
+      font-weight: 700;
+
+      &:hover {
+        color: #002999;
+      }
+
+      @include md-max {
+        font-size: 13px;
+        line-height: 19px;
+      }
+    }
+  }
+
+  &__social {
+    display: flex;
+    gap: 25px;
+
+    li {
+      width: 40px;
+      height: 40px;
+
+      svg {
+        width: 100%;
+        height: 100%;
+
+        g {
+          stroke: rgb(255, 255, 255);
+          fill: transparent;
+        }
+
+        path {
+          fill: rgb(255, 255, 255);
+        }
+      }
     }
   }
 }

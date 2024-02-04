@@ -42,9 +42,13 @@
   }
 
   &__left {
-    flex: 0 0 450px;
+    flex: 0 0 550px;
 
     @include qhd-max {
+      flex: 0 0 450px;
+    }
+
+    @include xxl-max {
       flex: 0 0 350px;
     }
 
