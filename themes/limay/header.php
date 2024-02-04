@@ -50,17 +50,17 @@
           </a>
         </div>
 
-        <div>
-          <?php if (has_nav_menu('megamenu')) {
-            $args = array(
-              'container_class' => 'limay-header__megamenu-menu',
-              'container' => 'nav',
-              'menu_class' => 'header-megamenu',
-              'theme_location' => 'megamenu',
-            );
-            wp_nav_menu($args);
-          } ?>
-        </div>
+
+        <?php if (has_nav_menu('megamenu')) {
+          $args = array(
+            'container_class' => 'limay-header__megamenu-menu',
+            'container' => 'nav',
+            'menu_class' => 'header-megamenu',
+            'theme_location' => 'megamenu',
+          );
+          wp_nav_menu($args);
+        } ?>
+
 
         <ul class="limay-header__megamenu-social">
           <?php if (!empty($social)) { ?>

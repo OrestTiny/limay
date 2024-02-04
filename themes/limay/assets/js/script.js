@@ -11,6 +11,7 @@ $(document).ready(function () {
     const menuItems = $('.header-megamenu .menu-item', megamenu);
     const socialItems = $('.limay-header__megamenu-social li');
     const logo = $('.limay-header__megamenu-logo');
+    const button = $('.limay-header__megamenu-btn');
 
     burgerBtn.click(function () {
       if (!isClick) return;
@@ -27,6 +28,7 @@ $(document).ready(function () {
         logo.addClass('active');
 
         setTimeout(() => {
+          button.addClass('active');
           animateEachActive(menuItems, 100);
           animateEachActive(socialItems, 200);
           isClick = true;
@@ -37,6 +39,7 @@ $(document).ready(function () {
         burgerBtn.removeClass('active');
 
         setTimeout(() => {
+          button.removeClass('active');
           animateEachActiveReverse(menuItems, 100);
           animateEachActiveReverse(socialItems, 100)
         }, 100)

@@ -32,11 +32,78 @@
       }
     }
 
+    &-btn {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      opacity: 0;
+      transform: translateY(-30px);
+      transition: opacity 400ms, transform 500ms;
+
+      &.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      h5 {
+        color: $lg;
+        font-weight: 700;
+
+        @include lg-max {
+          display: none;
+        }
+      }
+
+      span {
+        background: rgb(255, 255, 255);
+        width: 1px;
+        height: 100px;
+        margin: 0px 3rem;
+        display: inline-block;
+
+        @include lg-max {
+          display: none;
+        }
+      }
+
+      a {
+        background-color: rgba(0, 0, 0, 0.25);
+        color: rgb(255, 255, 255);
+        transition: color 0.2s ease-in-out 0s;
+        padding: 20px 35px;
+        font-family: Circular, sans-serif;
+        font-weight: 700;
+        text-transform: uppercase;
+        text-decoration: none;
+        border-radius: 30px;
+        display: inline-block;
+        cursor: pointer;
+        font-size: 12px;
+        line-height: 14.4px;
+
+        @include lg-max {
+          padding: 20px 32px;
+        }
+
+        &:hover {
+          background-color: rgb(255, 255, 255);
+          color: rgb(247, 78, 161);
+        }
+      }
+    }
+
     &-wrap {
-      padding: 65px;
+      padding: 65px 65px 40px;
       position: relative;
       z-index: 1;
       height: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+
+      @include lg-max {
+        padding: 40px;
+      }
     }
 
     &-bg {
@@ -75,6 +142,11 @@
       margin: 0;
       display: flex;
       gap: 20px;
+      padding-bottom: 25px;
+
+      @include lg-max {
+        padding-bottom: 0;
+      }
 
       li {
         list-style: none;
@@ -104,7 +176,15 @@
     }
 
     &-menu {
-      padding-left: 17%;
+      position: absolute;
+      left: 25%;
+      top: 50%;
+      transform: translateY(-50%);
+
+      @include lg-max {
+        position: static;
+        transform: translateY(0);
+      }
 
       .header-megamenu {
         padding: 0;
@@ -168,6 +248,8 @@
       flex-direction: column;
       justify-content: space-between;
       height: 100%;
+      flex: 1;
+      position: relative;
     }
   }
 

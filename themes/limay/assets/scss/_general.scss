@@ -84,8 +84,21 @@ h4 {
   font-size: 20px;
 }
 
-h5 {
-  font-size: 18px;
+h5,
+.h5 {
+  font-size: 26px;
+  line-height: 20.8px;
+  margin-bottom: 0;
+
+  @include lg-max {
+    font-size: 20px;
+    line-height: 16.64px;
+  }
+
+  @include md-max {
+    font-size: 18.2px;
+    line-height: 22.75px;
+  }
 }
 
 h6 {
@@ -99,6 +112,9 @@ p {
     margin-bottom: 30px;
   }
 }
+
+
+
 
 button,
 input[type="submit"],
