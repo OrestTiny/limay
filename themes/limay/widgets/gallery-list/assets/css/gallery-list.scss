@@ -130,7 +130,9 @@
   position: absolute;
   top: 15px;
   left: -30px;
-  color: $pr;
+  background: linear-gradient(90deg, #00ffb3 0, #002999 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-weight: 700;
 
   @include fhd-max {

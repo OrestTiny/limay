@@ -89,7 +89,9 @@
       line-height: 42.9px;
 
       strong {
-        color: $pr;
+        background: linear-gradient(90deg, #00ffb3 0, #002999 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
       }
 
       @include fhd-max {

@@ -98,7 +98,7 @@ body.home {
       }
 
       a {
-        background-color: rgba(0, 0, 0, 0.25);
+        overflow: hidden;
         color: rgb(255, 255, 255);
         transition: color 0.2s ease-in-out 0s;
         padding: 20px 35px;
@@ -111,14 +111,30 @@ body.home {
         cursor: pointer;
         font-size: 12px;
         line-height: 14.4px;
+        position: relative;
+
 
         @include lg-max {
           padding: 20px 32px;
         }
 
+        &::before {
+          content: '';
+          background-color: rgba(0, 0, 0, 0.25);
+          position: absolute;
+          inset: 0;
+          transition: background 0.2s ease-in-out 0s;
+        }
+
         &:hover {
-          background-color: rgb(255, 255, 255);
-          color: $pr;
+          background: linear-gradient(90deg, #00ffb3 0, #002999 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+
+          &::before {
+            background-color: rgb(255, 255, 255);
+            z-index: -1;
+          }
         }
       }
     }
