@@ -102,7 +102,21 @@ $(document).ready(function () {
 
 
 
+  const aniItems = $('[data-an]');
 
+  if (aniItems) {
+    aniItems.each((i, el) => {
+      const delay = $(el).attr('data-anDelay');
+
+      if (delay) {
+        setTimeout(() => {
+          $(el).addClass('animation')
+        }, delay);
+      } else {
+        $(el).addClass('animation')
+      }
+    })
+  }
 
 
 
@@ -127,7 +141,7 @@ $(document).ready(function () {
 
   scrollbarInstance.addListener((status) => {
 
-    if ($(window).innerWidth() >= 991) {
+    if ($(window).innerWidth() >= 991 && $('.shimitest-gallery').length) {
       isScrolledIntoViewLastItem(status.offset.y)
       animateImages();
       isScrollPosition();
@@ -215,8 +229,6 @@ $(document).ready(function () {
   $(window).on('load resize', function () {
     changePosition();
   })
-
-
 
 
 });

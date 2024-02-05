@@ -2,6 +2,23 @@ body.home {
   .limay-header__logo {
     display: none;
   }
+
+  .limay-header {
+    mix-blend-mode: exclusion;
+
+    .limay-header__menu a {
+      color: rgb(255, 255, 255);
+    }
+
+    .limay-header__burger span {
+      background-color: rgb(255, 255, 255);
+
+      &::after,
+      &::before {
+        background-color: rgb(255, 255, 255);
+      }
+    }
+  }
 }
 
 
@@ -10,7 +27,7 @@ body.home {
   z-index: 9999;
   width: 100%;
   padding: 67px 43px 0 65px;
-  mix-blend-mode: exclusion;
+  mix-blend-mode: unset;
   pointer-events: none;
   display: flex;
   justify-content: space-between;
@@ -28,6 +45,11 @@ body.home {
 
     .header-menu {
       display: none;
+    }
+
+    .limay-header__logo {
+      visibility: hidden;
+      opacity: 0;
     }
   }
 
@@ -353,7 +375,7 @@ body.home {
     }
 
     a {
-      color: rgb(255, 255, 255);
+      color: var(--e-global-color-secondary);
       text-decoration: none;
       transition: color 0.15s ease 0s, background .2s;
       mix-blend-mode: multiply;
@@ -451,7 +473,7 @@ body.home {
       transition: top 300ms ease 0s, transform 300ms ease 0s, background-color 300ms ease 0s;
       width: 39px;
       height: 4.55px;
-      background-color: rgb(255, 255, 255);
+      background-color: var(--e-global-color-secondary);
       position: relative;
 
       @include fhd-max {
@@ -465,7 +487,7 @@ body.home {
         display: inline-block;
         width: 39px;
         height: 4.55px;
-        background-color: rgb(255, 255, 255);
+        background-color: var(--e-global-color-secondary);
         position: absolute;
         right: 0px;
         transform-origin: 50% 50%;
