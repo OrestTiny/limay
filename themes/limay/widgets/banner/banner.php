@@ -141,6 +141,10 @@ class Limay_Banner extends Widget_Base
     <?php if (!empty($settings['media']) && count($settings['media'])) { ?>
       <script type="module">
         var lora = "<?= $settings['media']['url'] ?>";
+        if (lora.startsWith("http://")) {
+          lora = lora.replace("http://", "https://");
+        }
+
         import {
           Renderer,
           Camera,

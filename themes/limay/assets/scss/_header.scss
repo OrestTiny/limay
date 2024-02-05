@@ -6,16 +6,34 @@ body.home {
   .limay-header {
     mix-blend-mode: exclusion;
 
-    .limay-header__menu a {
-      color: rgb(255, 255, 255);
+    &.open {
+      mix-blend-mode: unset;
     }
 
-    .limay-header__burger span {
-      background-color: rgb(255, 255, 255);
+    .limay-header__menu a {
+      color: rgb(255, 255, 255);
 
-      &::after,
-      &::before {
+      &:hover {
+        background: linear-gradient(90deg, rgba(255, 0, 76, 255) 0, rgba(255, 214, 102, 255) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+
+    .limay-header__burger {
+      &.active {
+        span {
+          background: rgba(0, 0, 0, 0);
+        }
+      }
+
+      span {
         background-color: rgb(255, 255, 255);
+
+        &::after,
+        &::before {
+          background-color: rgb(255, 255, 255);
+        }
       }
     }
   }
@@ -397,7 +415,7 @@ body.home {
       }
 
       &:hover {
-        background: linear-gradient(90deg, rgba(255, 0, 76, 255) 0, rgba(255, 214, 102, 255) 100%);
+        background: linear-gradient(90deg, #00ffb3 0, #002999 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
       }

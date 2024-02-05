@@ -77,7 +77,7 @@
       </div>
 
       <?php if (!empty($btn_name) && !empty($text)) { ?>
-        <div class="limay-header__megamenu-btn">
+        <div class="limay-header__megamenu-btn" style="display: none;">
           <h5><?= $text ?></h5>
           <span></span>
           <a href="<?= $btn_link ?>"><?= $btn_name   ?></a>
