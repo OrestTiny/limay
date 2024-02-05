@@ -87,33 +87,35 @@
   </div>
 
 
+
+  <header class="limay-header">
+    <a class="limay-header__logo" href="<?php echo esc_url(home_url('/')); ?>">
+      <?php
+      if (has_custom_logo()) {
+        echo '<img src="' . esc_url($logo[0]) . '" alt="' . get_bloginfo('name') . '">';
+      }
+      ?>
+    </a>
+
+    <div class="limay-header__wrapper">
+      <?php if (has_nav_menu('primary-menu')) {
+        $args = array(
+          'container_class' => 'limay-header__menu',
+          'container' => 'nav',
+          'menu_class' => 'header-menu',
+          'theme_location' => 'primary-menu',
+          'walker' => new Custom_Walker_Nav_Menu(),
+        );
+        wp_nav_menu($args);
+      } ?>
+
+
+      <button data-an="true" data-anDelay="100" class="limay-header__burger" id="limay-header__burger" aria-label="Toggle Navigation">
+        <span></span>
+      </button>
+    </div>
+
+  </header>
+
   <div class="limay-main">
-    <header class="limay-header">
-      <a class="limay-header__logo" href="<?php echo esc_url(home_url('/')); ?>">
-        <?php
-        if (has_custom_logo()) {
-          echo '<img src="' . esc_url($logo[0]) . '" alt="' . get_bloginfo('name') . '">';
-        }
-        ?>
-      </a>
-
-      <div class="limay-header__wrapper">
-        <?php if (has_nav_menu('primary-menu')) {
-          $args = array(
-            'container_class' => 'limay-header__menu',
-            'container' => 'nav',
-            'menu_class' => 'header-menu',
-            'theme_location' => 'primary-menu',
-            'walker' => new Custom_Walker_Nav_Menu(),
-          );
-          wp_nav_menu($args);
-        } ?>
-
-
-        <button data-an="true" data-anDelay="100" class="limay-header__burger" id="limay-header__burger" aria-label="Toggle Navigation">
-          <span></span>
-        </button>
-      </div>
-
-    </header>
     <main>

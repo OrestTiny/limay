@@ -98,4 +98,125 @@ $(document).ready(function () {
 
   loadAnimation();
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  let Scrollbar = window.Scrollbar;
+  let options = {
+    damping: '0.05',
+    alwaysShowTracks: true,
+  };
+
+  let scrollbarInstance = Scrollbar.init(document.querySelector('.limay-main'), options);
+
+  scrollbarInstance.addListener((status) => {
+
+    if ($(window).innerWidth() >= 991) {
+      isScrolledIntoViewLastItem(status.offset.y)
+      animateImages();
+      isScrollPosition();
+    }
+
+  });
+
+  var imagesShown = [];
+
+  function isScrollPosition() {
+    const windowHeight = $(window).height();
+    const shimiGallery = $('.shimitest-gallery');
+    const wrap = $('.desktopPhotos');
+    const positionCenter = (windowHeight - wrap.outerHeight()) / 2;
+
+    const startAnimationNew = shimiGallery.offset().top - positionCenter;
+    const endAnimationNew = shimiGallery.offset().top + shimiGallery.outerHeight() - windowHeight + positionCenter;
+
+    if (startAnimationNew <= 0 && endAnimationNew >= 0) {
+      let positiveValue = Math.abs(startAnimationNew);
+
+      wrap.css({
+        transform: `translateY(${positiveValue}px)`
+      });
+    }
+  }
+
+  function isScrolledIntoView(elem) {
+    const elemTop = elem.offset().top;
+    const elemBottom = elemTop - $(window).outerHeight();
+
+    return (elemBottom <= 0);
+  }
+
+  function isScrolledIntoViewLastItem() {
+    const mainImageSec = $('.shimitest-gallery__right');
+    const desktopPhotos = $('.desktopPhotos');
+    const elemTop = mainImageSec.offset().top;
+    const elemBottom = elemTop + mainImageSec.height() - $(window).height() / 1.5;
+
+    if (elemBottom <= 0) {
+      desktopPhotos.fadeOut();
+    } else {
+      desktopPhotos.fadeIn();
+    }
+  }
+
+  function animateImages() {
+    const section = $('.desktopContentSection__wrap');
+
+    section.each(function (index) {
+      var image = $('.desktopPhotos .desktopPhoto').eq(index);
+
+      if (isScrolledIntoView($(this)) && !imagesShown[index]) {
+        image.addClass('active');
+        imagesShown[index] = true;
+      } else if (!isScrolledIntoView($(this)) && imagesShown[index]) {
+        image.removeClass('active');
+        imagesShown[index] = false;
+      }
+    });
+  }
+
+  function changePosition() {
+    const windowW = $(window).innerWidth();
+    const desktopContentSection = $('.desktopContentSection');
+    const desktopPhoto = $('.desktopPhoto');
+    const desktopPhotos = $('.desktopPhotos');
+
+    desktopContentSection.each(function () {
+      const index = $(this).index();
+      const imageEl = desktopPhoto.eq(index);
+
+      if (desktopPhotos.children().length && windowW <= 991) {
+        imageEl.appendTo($(this).children('.desktopContentSection__wrap'));
+        desktopPhotos.removeAttr('style');
+      }
+
+      if (windowW >= 991) {
+        imageEl.appendTo(desktopPhotos);
+      }
+    });
+  }
+
+  $(window).on('load resize', function () {
+    changePosition();
+  })
+
+
+
+
 });

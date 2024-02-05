@@ -4,7 +4,7 @@
 }
 
 html {
-  overflow-x: hidden;
+  overflow: hidden;
   text-size-adjust: 100%;
 }
 
@@ -20,6 +20,7 @@ body {
   background: #ffff;
   overflow-wrap: break-word;
   font-kerning: normal;
+  overflow: hidden;
 }
 
 .container {
@@ -44,11 +45,11 @@ body {
 }
 
 .limay-main {
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
 
-  &>main {
+  main {
     flex: 1;
   }
 }
@@ -454,12 +455,11 @@ input {
   width: 8px;
 }
 
-*::-webkit-scrollbar-track {
-  background: rgba(222, 222, 222, .75);
-}
+// *::-webkit-scrollbar-track {
+//   background: rgba(222, 222, 222, .75);
+// }
 
 *::-webkit-scrollbar-thumb {
-  background: linear-gradient(rgb(0, 41, 153), rgb(0, 255, 179));
   border-radius: 10px;
 }
 
@@ -469,4 +469,9 @@ input {
   &.animation {
     opacity: 1;
   }
+}
+
+
+.scrollbar-thumb {
+  background: linear-gradient(rgb(0, 41, 153), rgb(0, 255, 179)) !important;
 }

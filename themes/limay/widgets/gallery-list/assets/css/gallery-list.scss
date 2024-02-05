@@ -18,6 +18,11 @@
 
   @include lg-max {
     justify-content: flex-start;
+    padding: 0 25px;
+  }
+
+  @include md-max {
+    padding: 0 20px;
   }
 
   h2 {
@@ -144,6 +149,10 @@
     top: 10px;
     left: -20px;
   }
+
+  @include md-max {
+    left: -15px;
+  }
 }
 
 
@@ -151,8 +160,7 @@
   aspect-ratio: 14 / 9;
   border-radius: 20px;
   position: relative;
-  position: sticky;
-  top: 130px;
+
 }
 
 .desktopContentSection__wrap {

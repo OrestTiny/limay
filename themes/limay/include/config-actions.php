@@ -91,6 +91,7 @@ if (!function_exists('upqode_enqueue_scripts')) {
       wp_enqueue_script('comment-reply');
     }
 
+    wp_enqueue_script('limay-smooth-scrollbar', LIMAY_T_URI . '/assets/js/lib/smooth-scrollbar.js', array('jquery'), '', true);
     wp_enqueue_script('limay-script', LIMAY_T_URI . '/assets/js/script.min.js', array('jquery'), '', true);
   }
 }
