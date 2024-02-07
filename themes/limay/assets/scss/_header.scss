@@ -74,6 +74,12 @@ body.home {
   &__logo {
     height: 65px;
     pointer-events: all;
+    transition: opacity 400ms;
+
+    &.active {
+      opacity: 0;
+      pointer-events: none;
+    }
 
     img {
       width: auto;
@@ -82,7 +88,7 @@ body.home {
   }
 
   &__megamenu {
-    height: 100vh;
+    height: 100%;
     position: fixed;
     inset: 0;
     z-index: 999;

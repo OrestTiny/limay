@@ -133,7 +133,7 @@ $(document).ready(function () {
 
   let Scrollbar = window.Scrollbar;
   let options = {
-    damping: '0.05',
+    damping: '0.1',
     alwaysShowTracks: true,
   };
 
@@ -145,6 +145,8 @@ $(document).ready(function () {
       isScrolledIntoViewLastItem(status.offset.y)
       animateImages();
       isScrollPosition();
+    } else {
+      hideHeaderLogo(status.offset.y);
     }
 
   });
@@ -205,6 +207,19 @@ $(document).ready(function () {
     });
   }
 
+
+  function hideHeaderLogo(offsetY) {
+    const headerHeight = $('.limay-header').outerHeight();
+    const headerLogo = $('.limay-header__logo');
+
+    if (offsetY >= headerHeight * 2) {
+      headerLogo.addClass('active');
+    } else {
+      headerLogo.removeClass('active');
+    }
+
+  }
+
   // function changePosition() {
   //   const windowW = $(window).innerWidth();
   //   const desktopContentSection = $('.desktopContentSection');
@@ -231,7 +246,6 @@ $(document).ready(function () {
 
   //   changePosition();
   // })
-
 
 });
 
