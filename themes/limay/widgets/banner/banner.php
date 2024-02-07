@@ -99,10 +99,19 @@ class Limay_Banner extends Widget_Base
       'description',
       [
         'label' => esc_html__('Description', 'limay'),
-        'type' => \Elementor\Controls_Manager::WYSIWYG,
+        'type' => \Elementor\Controls_Manager::TEXTAREA,
         'rows' => 10,
         'default' => esc_html__('Default Description', 'limay'),
         'placeholder' => esc_html__('Type your description here', 'limay'),
+      ]
+    );
+
+    $this->add_group_control(
+      \Elementor\Group_Control_Typography::get_type(),
+      [
+        'label' => esc_html__('Description Typography', 'limay'),
+        'name' => 'description_typography',
+        'selector' => '{{WRAPPER}} .limay-banner__content-desc',
       ]
     );
 
@@ -141,9 +150,9 @@ class Limay_Banner extends Widget_Base
     <?php if (!empty($settings['media']) && count($settings['media'])) { ?>
       <script type="module">
         var lora = "<?= $settings['media']['url'] ?>";
-        if (lora.startsWith("http://")) {
-          lora = lora.replace("http://", "https://");
-        }
+        // if (lora.startsWith("http://")) {
+        //   lora = lora.replace("http://", "https://");
+        // }
 
         import {
           Renderer,

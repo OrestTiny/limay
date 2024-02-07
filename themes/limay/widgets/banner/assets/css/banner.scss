@@ -5,7 +5,7 @@
   position: relative;
   display: flex;
   align-items: center;
-
+  overflow: hidden !important;
 
 
   &__img {
@@ -22,6 +22,19 @@
       width: 100% !important;
       display: flex;
       align-items: center;
+      transform: translateX(80px);
+
+      @include fhd-max {
+        transform: translateX(60px);
+      }
+
+      @include xl-max {
+        transform: translateX(40px);
+      }
+
+      @include lg-max {
+        transform: translateX(0);
+      }
 
       canvas {
         width: 100% !important;
@@ -52,18 +65,21 @@
 
   &__content {
     position: relative;
-    width: 50%;
+    width: 52%;
     margin-left: auto;
     transform: translateY(30px);
     transition: opacity 600ms, transform 500ms;
+    display: flex;
+    flex-direction: column;
+    margin-top: -37px;
 
     &.animation {
       transform: translateY(0);
     }
 
-    @include fhd-max {
-      padding-right: 10%;
-    }
+    // @include fhd-max {
+    //   padding-right: 10%;
+    // }
 
     @include xxl-max {
       padding-right: 0;
@@ -77,38 +93,37 @@
     }
 
     h1 {
-      margin-bottom: 25px;
+      margin-bottom: 10px;
       color: rgb(55, 55, 55);
       font-weight: 700;
-
+      font-size: clamp(40px, 10vw, 190px);
+      line-height: 1;
     }
 
     &-desc {
-      font-size: 28.6px;
-      letter-spacing: -0.975px;
-      line-height: 42.9px;
+      font-size: clamp(26px, 4vw, 75px);
+      letter-spacing: 1px;
+      line-height: 1.1;
+      font-family: 'PingFang', sans-serif;
+      text-transform: uppercase;
+      padding-left: 10px;
 
-      strong {
-        background: linear-gradient(90deg, #00ffb3 0, #002999 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
+      // strong {
+      //   background: linear-gradient(90deg, #00ffb3 0, #002999 100%);
+      //   -webkit-background-clip: text;
+      //   -webkit-text-fill-color: transparent;
+      // }
 
-      @include fhd-max {
-        font-size: 22px;
-        letter-spacing: 0.75px;
-        line-height: 33px;
-      }
 
-      @include lg-max {
-        font-size: 17.6px;
-        letter-spacing: -0.6px;
-        line-height: 26.4px;
-      }
+      // @include lg-max {
+      //   font-size: 17.6px;
+      //   letter-spacing: -0.6px;
+      //   line-height: 26.4px;
+      // }
 
-      @include md-max {
-        font-size: 17.5px;
-      }
+      // @include md-max {
+      //   font-size: 17.5px;
+      // }
 
       p {
         font-size: inherit;

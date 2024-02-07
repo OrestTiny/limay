@@ -54,6 +54,7 @@ if (!function_exists('upqode_enqueue_scripts')) {
     if ((is_admin())) {
       return;
     }
+    wp_enqueue_style('limay-ping-fang', LIMAY_T_URI . '/assets/fonts/PingFang/stylesheet.css');
     wp_enqueue_style('limay-sofia-pro', LIMAY_T_URI . '/assets/fonts/SofiaPro/stylesheet.css');
     wp_enqueue_style('limay-circularStd', LIMAY_T_URI . '/assets/fonts/CircularStd/stylesheet.css');
 
