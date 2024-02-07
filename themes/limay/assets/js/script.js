@@ -205,30 +205,56 @@ $(document).ready(function () {
     });
   }
 
-  function changePosition() {
-    const windowW = $(window).innerWidth();
-    const desktopContentSection = $('.desktopContentSection');
-    const desktopPhoto = $('.desktopPhoto');
-    const desktopPhotos = $('.desktopPhotos');
+  // function changePosition() {
+  //   const windowW = $(window).innerWidth();
+  //   const desktopContentSection = $('.desktopContentSection');
+  //   const desktopPhoto = $('.desktopPhoto');
+  //   const desktopPhotos = $('.desktopPhotos');
+  //   console.log(2);
 
-    desktopContentSection.each(function () {
-      const index = $(this).index();
-      const imageEl = desktopPhoto.eq(index);
+  //   desktopContentSection.each(function () {
+  //     const index = $(this).index();
+  //     const imageEl = desktopPhoto.eq(index);
 
-      if (desktopPhotos.children().length && windowW <= 991) {
-        imageEl.appendTo($(this).children('.desktopContentSection__wrap'));
-        desktopPhotos.removeAttr('style');
-      }
+  //     if (desktopPhotos.children().length && windowW <= 991) {
+  //       imageEl.appendTo($(this).children('.desktopContentSection__wrap'));
+  //       desktopPhotos.removeAttr('style');
+  //     }
 
-      if (windowW >= 991) {
-        imageEl.appendTo(desktopPhotos);
-      }
-    });
-  }
+  //     if (windowW >= 991) {
+  //       imageEl.appendTo(desktopPhotos);
+  //     }
+  //   });
+  // }
 
-  $(window).on('load resize', function () {
-    changePosition();
-  })
+  // $(window).on('load resize', function () {
+
+  //   changePosition();
+  // })
 
 
 });
+
+
+function changePosition() {
+  const windowW = window.innerWidth;
+  const desktopContentSections = document.querySelectorAll('.desktopContentSection');
+  const desktopPhotos = document.querySelectorAll('.desktopPhoto');
+  const desktopPhotosContainer = document.querySelector('.desktopPhotos');
+
+  desktopContentSections.forEach(function (desktopContentSection, index) {
+    const imageEl = desktopPhotos[index];
+
+    if (desktopPhotosContainer.children.length && windowW <= 991) {
+      desktopContentSection.querySelector('.desktopContentSection__wrap').appendChild(imageEl);
+      desktopPhotosContainer.removeAttribute('style');
+    }
+
+    if (windowW >= 991) {
+      desktopPhotosContainer.appendChild(imageEl);
+    }
+  });
+}
+
+window.addEventListener('load', changePosition);
+window.addEventListener('resize', changePosition);
