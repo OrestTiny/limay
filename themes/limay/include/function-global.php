@@ -119,3 +119,14 @@ class Custom_Walker_Nav_Menu extends Walker_Nav_Menu
     }
   }
 }
+
+
+function isLink($data)
+{
+  $el = $data;
+
+  echo $el['is_external'] ? ' target="_blank" ' : ' target="_self" ';
+  echo $el['nofollow'] ? ' rel="noopener" ' : '';
+  echo $el['url'] ? ' href="' . esc_url($el['url']) . '" ' : '';
+  echo $el['custom_attributes'] ? ' ' . esc_attr($el['custom_attributes']) . ' ' : '';
+}

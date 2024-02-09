@@ -21,6 +21,7 @@ if (!class_exists('Limay_Elementor_Widgets')) {
       require_once LIMAY_T_PATH . '/widgets/newsletter/newsletter.php';
       require_once LIMAY_T_PATH . '/widgets/banner/banner.php';
       require_once LIMAY_T_PATH . '/widgets/gallery-list/gallery-list.php';
+      require_once LIMAY_T_PATH . '/widgets/accordion/accordion.php';
 
 
       add_action('elementor/widgets/widgets_registered', [$this, 'register_widgets']);
@@ -33,6 +34,7 @@ if (!class_exists('Limay_Elementor_Widgets')) {
       \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \Elementor\Limay_Newsletter());
       \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \Elementor\Limay_Banner());
       \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \Elementor\Limay_Gallery_List());
+      \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \Elementor\Limay_Accordion());
     }
   }
 }

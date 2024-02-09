@@ -166,6 +166,7 @@ input[type="button"] {
   cursor: pointer;
   padding: 10px 20px;
   border-radius: 5px;
+  appearance: button;
 
   color: $lg;
 
@@ -197,24 +198,22 @@ a {
 }
 
 .btn {
-  padding: 0 23px;
-  font-size: 18px;
+  font-family: Circular, sans-serif;
+  padding: 20px 50px;
+  font-size: 12px;
   line-height: 1;
-  border-radius: 32px;
+  border-radius: 50px;
+  border: 2px solid #002999;
+  font-weight: 700;
   cursor: pointer;
-  color: $lg;
-  border: thin solid $lg;
-  background: $blue;
-  transition: all 350ms ease;
-  height: 42px;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
+  color: #002999;
+  background: transparent;
+  transition: background-color 0.25s ease-in-out 0s, color 0.25s ease-in-out 0s;
+  text-transform: uppercase;
 
   &:hover {
-    background: $lg;
-    color: $blue;
-    border-color: $blue;
+    background: #002999;
+    color: $lg;
   }
 
   &:focus {
