@@ -190,6 +190,7 @@
       padding: 50px 0 0 100px;
       position: relative;
 
+
       @include fhd-max {
         padding: 50px 0 0 80px;
       }
@@ -197,7 +198,6 @@
       @include lg-max {
         padding: 0;
       }
-
 
       &::after {
         content: "";
@@ -214,6 +214,15 @@
           content: none;
         }
       }
+
+      &-wrap {
+        width: 80%;
+        margin-right: auto;
+
+        @include fhd-max {
+          width: 100%;
+        }
+      }
     }
 
     &-left {
@@ -225,6 +234,74 @@
 
       @include lg-max {
         padding-right: 0;
+      }
+
+      p {
+        font-size: 26px;
+        line-height: 31.2px;
+
+        @include fhd-max {
+          font-size: 20px;
+          line-height: 24px;
+        }
+
+        @include md-max {
+          font-size: 17.5px;
+          line-height: 21px;
+        }
+      }
+
+      h3 {
+        &:first-of-type {
+          font-size: 18.2px;
+          line-height: 1;
+          letter-spacing: 2.6px;
+          color: #002999;
+          margin: 0 0 19px;
+
+          @include fhd-max {
+            font-size: 14px;
+            margin: 0 0 15px;
+          }
+
+          @include md-max {
+            font-size: 12px;
+          }
+        }
+
+        &:last-of-type {
+          font-size: 52px;
+          margin: 0 0 40px;
+
+          @include fhd-max {
+            font-size: 40px;
+            margin: 0 0 30px;
+          }
+
+          @include md-max {
+            font-size: 28px;
+            margin: 0 0 24px;
+          }
+        }
+      }
+
+      h2 {
+        font-size: 58.5px;
+        letter-spacing: -0.975px;
+        line-height: 64.35px;
+        color: #002999;
+        margin: 0 0 40px;
+
+        @include fhd-max {
+          font-size: 45px;
+          line-height: 1;
+          margin: 0 0 30px;
+        }
+
+        @include md-max {
+          font-size: 31.5px;
+          margin: 0 0 24px;
+        }
       }
     }
 
@@ -266,11 +343,20 @@
           max-width: 650px;
           width: 100%;
           height: 100%;
-          padding: 0 15px;
+          padding: 30px 15px;
+          justify-content: center;
+        }
+
+        @include sm-max {
+          justify-content: flex-start;
         }
 
         &>div {
           flex: 0 0 50%;
+
+          @include lg-max {
+            flex: 0 0 auto;
+          }
         }
       }
     }
@@ -286,6 +372,12 @@
       cursor: pointer;
       z-index: 10;
       background: transparent;
+      transition: opacity 400ms;
+
+      &:hover {
+        background: transparent;
+        opacity: .7;
+      }
     }
   }
 
@@ -339,6 +431,7 @@
       display: flex;
       align-items: center;
       gap: 15px;
+      flex-shrink: 0;
 
       svg {
         transition: transform 400ms ease;
@@ -384,6 +477,11 @@
 
     p {
       margin-bottom: 20px;
+      margin-top: 0;
+
+      strong {
+        font-weight: 800;
+      }
 
       @include fhd-max {
         margin-bottom: 15px;

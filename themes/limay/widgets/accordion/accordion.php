@@ -145,7 +145,9 @@ class Limay_Accordion extends Widget_Base
             <p>Please fill in the form including your CV and we will get back to you.</p>
           </div>
           <div class="limay-accordion__popup-right">
-            <?= do_shortcode($settings['shortcode']) ?>
+            <div class="limay-accordion__popup-right-wrap">
+              <?= do_shortcode($settings['shortcode']) ?>
+            </div>
           </div>
         </div>
 
