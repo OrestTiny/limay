@@ -9,7 +9,8 @@
 
   @include md-max {
     align-items: flex-start;
-    padding-top: 47px;
+    padding: 120px 0;
+    height: auto;
   }
 
   &__img {
@@ -36,7 +37,16 @@
 
   &__media {
     @include lg-max {
-      display: block !important;
+      display: flex !important;
+      align-items: center;
+      height: 100%;
+    }
+
+    img {
+      @include lg-max {
+        height: 100%;
+        width: auto;
+      }
     }
   }
 
@@ -47,10 +57,15 @@
 
     @include lg-max {
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
       gap: 40px;
+      height: 250px;
+    }
+
+    @include md-max {
+      gap: 20px;
+      height: 170px;
     }
   }
 
@@ -68,26 +83,32 @@
       transform: translateY(0);
     }
 
-    // @include fhd-max {
-    //   padding-right: 10%;
-    // }
 
     @include xxl-max {
       padding-right: 0;
+
     }
 
     @include lg-max {
-      width: 100%;
-      margin: 0 auto;
-      max-width: 450px;
-      text-align: center;
+      width: auto;
+      margin: -27px 0 0;
+      // max-width: 450px;
+      // text-align: center;
+    }
+
+    @include md-max {
+      margin: -10px 0 0;
+    }
+
+    @include sm-max {
+      margin: -7px 0 0;
     }
 
     h1 {
       margin-bottom: 10px;
       color: rgb(55, 55, 55);
       font-weight: 700;
-      font-size: clamp(45px, 10vw, 190px);
+      font-size: clamp(50px, 10vw, 190px);
       line-height: 1;
     }
 
@@ -112,9 +133,9 @@
       //   line-height: 26.4px;
       // }
 
-      // @include md-max {
-      //   font-size: 17.5px;
-      // }
+      @include md-max {
+        padding-left: 0;
+      }
 
       p {
         font-size: inherit;

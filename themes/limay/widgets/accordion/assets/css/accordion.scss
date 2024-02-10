@@ -32,6 +32,10 @@
       }
     }
 
+    .forminator-error-message {
+      color: #b71540;
+    }
+
     .forminator-file-upload {
       position: relative;
       padding: 10px 0;
@@ -510,7 +514,6 @@
       }
 
       li {
-
         position: relative;
         list-style: none;
         padding-left: 39px;
@@ -521,6 +524,10 @@
 
         @include md-max {
           padding-left: 20px;
+        }
+
+        strong {
+          font-weight: 800;
         }
 
         &:not(:last-child) {
@@ -542,7 +549,7 @@
           content: "";
           width: 17px;
           height: 17px;
-          background-color: rgb(247, 78, 161);
+          background-color: #002999;
           border-radius: 50%;
 
           @include fhd-max {
